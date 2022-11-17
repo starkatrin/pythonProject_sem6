@@ -27,7 +27,7 @@ def list_complex(inp_str):
 
 def calculator(calc_list):
     if len(calc_list) == 1:
-        return calc_list[0]
+        return str(calc_list[0])
     for sign in ('^', '*','/','-','+'):
         for i in range(len(calc_list)):
             if type(calc_list[i]) == list:
@@ -40,39 +40,35 @@ def calculator(calc_list):
                         calc_list[i] = ans
                         calc_list.remove(left)
                         calc_list.remove(right)
-                        return calculator(calc_list)
+                        return str(calculator(calc_list))
                     elif op == '*':
                         ans = (left) * (right)
                         calc_list[i] = ans
                         calc_list.remove(left)
                         calc_list.remove(right)
-                        return calculator(calc_list)
+                        return str(calculator(calc_list))
                     elif op == '/':
                         ans = (left) / (right)
                         calc_list[i] = ans
                         calc_list.remove(left)
                         calc_list.remove(right)
-                        return calculator(calc_list)
+                        return str(calculator(calc_list))
                     elif op == '+':
                         ans = (left) + (right)
                         calc_list[i] = ans
                         calc_list.remove(left)
                         calc_list.remove(right)
-                        return calculator(calc_list)
+                        return str(calculator(calc_list))
                     elif op == '-':
                         ans = (left) - (right)
                         calc_list[i] = ans
                         calc_list.remove(left)
                         calc_list.remove(right)
-                        return calculator(calc_list)
+                        return str(calculator(calc_list))
 
 inp_str = '(2.3+5j)*2+3*(5+7j)-6*5.1'
 calc_list = list_complex(inp_str)
 answer = calculator(calc_list)
-print(answer)
+print(answer, type(answer))
 
 
-# #
-# #
-# print(calculation('1+2*(3+3)'))
-# #def calc_complex:
